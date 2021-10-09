@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOK-BOOK</title>
+</head>
+<body onload="reloadTaskCard()">
+     <div class="modal fade" id="newcardmodal" tabindex="-1" aria-labelledby="newcardmodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ADD YOUR RECIPE</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="recipeTitle" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="recipeTitle">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipeCategory" class="form-label">RECIPE CATEGORY(Veg/Non-Veg)</label>
+                        <input type="text" class="form-control" id="recipeCategory">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipeIngredients" class="form-label">INGREDIENTS</label>
+                        <input type="text" class="form-control" id="recipeIngredients">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipeSteps" class="form-label">STEPS TO MAKE</label>
+                        <textarea id="recipeSteps" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="addCard()" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        SAVE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="font-family: Georgia, 'Times New Roman', Times, serif;">FoodHub</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#"><strong>Home</strong></a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-light ml-auto" data-bs-toggle="modal" data-bs-target="#newcardmodal" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        <i class="fas fa-plus"></i>
+                        ADD YOUR CREATION
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="position-relative col-md-12 col-lg-12">
+            <img src="./assets/img.png" alt="Image" height="300px" width="100%" position="relative">
+            <section class="position-absolute top-50 start mt-4">
+                <div class="row justify-content-center">
+                  <div class="col-md-6 col-lg-12 col-4" style="margin-left: 100px;">
+                    <div class="input-group flex-nowrap shadow-lg col-md-4">
+                      <input
+                        type="search"
+                        class="form-control"
+                        placeholder="Search Recipe"
+                        aria-label="Search Task"
+                        aria-describedby="addon-wrapping"
+                        onchange="searchTask.apply(this, arguments)"
+                      />
+                      <span class="input-group-text" id="addon-wrapping">
+                        <i class="fas fa-search"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </section>
+            <div class="position-absolute top-50 start-50 col-lg-6 col-md-6" style="font-size: 35px; color: white; font-weight: 700; font-family: cursive;">
+                <p class="fst-italic fs-bold">It is even better than an expensive cookery book!!!</p>
+            </div>
+        </div>
+        
+        
+    </header>
+
+    <main class="container">
+        <section>
+            <div id="taskContentrow" class="row">
+            </div>
+        </section>
+    </main>
+
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
